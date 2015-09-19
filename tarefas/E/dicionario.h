@@ -1,11 +1,11 @@
 #ifndef DICIONARIO_H
 #define DICIONARIO_H
 
-/* Todas as funcoes desse modulo foram retiradas da pagina
+/* Esse modulo foi inteiramente retirado da pagina
 // do professor Paulo Feofiloff, disponivel em:
 // http://www.ime.usp.br/~pf/mac0121-2015/tarefas/lista-palavras/index.html 
-// Fiz poucas modificacoes, como por exemplo adicionar a busca binaria na 
-// funcao inserePalavra. */
+// Fiz poucas modificacoes, como por exemplo adicionar a busca 
+// binaria na funcao inserePalavra. */
 
 /* ------------- Variaveis globais ------------------ */
 

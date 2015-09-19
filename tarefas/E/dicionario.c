@@ -21,6 +21,8 @@ double constroiDicionario (FILE *entrada) {
             pal[i] = tolower (pal[i]);
         if (!isdigit (pal[0]))
             inserePalavra (pal);
+        else
+            free (pal);
     }
     fim = (double) clock () / CLOCKS_PER_SEC;
     return fim - inicio;
@@ -61,8 +63,8 @@ void inserePalavra (char *pal) {
     if (n == 0) 
         dic[n++] = pal;
     else {
-        j = buscab (0, n - 1, pal);
-        if (j == n || strcmp (dic[j], pal) != 0) {
+        j = buscab (0, n - 1, pal) + 1;
+        if (j == 0 || strcmp (dic[j - 1], pal) != 0) {
             if (n == N) 
                 expandeDic ();
             for (i = n - 1; i >= j; i--) 
