@@ -1,3 +1,21 @@
+/* -*- coding: iso-latin-1-unix; -*- */
+/* DECLARO QUE SOU O UNICO AUTOR E RESPONSAVEL POR ESTE PROGRAMA.
+// TODAS AS PARTES DO PROGRAMA, EXCETO AS QUE FORAM FORNECIDAS
+// PELO PROFESSOR OU COPIADAS DO LIVRO OU DAS BIBLIOTECAS DE
+// SEDGEWICK OU ROBERTS, FORAM DESENVOLVIDAS POR MIM.  DECLARO
+// TAMBEM QUE SOU RESPONSAVEL POR TODAS AS COPIAS DESTE PROGRAMA
+// E QUE NAO DISTRIBUI NEM FACILITEI A DISTRIBUICAO DE COPIAS.
+// 
+// Autor: Gabriel de Russo e Carmo
+// Numero USP: 9298041
+// Sigla: GABRIELD
+// Data: 2015-09-19
+// 
+// Este arquivo faz parte da tarefa E
+// da disciplina MAC0121.
+// 
+////////////////////////////////////////////////////////////// */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -64,6 +82,7 @@ void inserePalavra (char *pal) {
         dic[n++] = pal;
     else {
         j = buscab (0, n - 1, pal) + 1;
+        /* j e a posicao da primeira palavra lexicograficamente maior a pal */
         if (j == 0 || strcmp (dic[j - 1], pal) != 0) {
             if (n == N) 
                 expandeDic ();
