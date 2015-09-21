@@ -19,6 +19,8 @@
 #ifndef DICIONARIO_H
 #define DICIONARIO_H
 
+#include <stdio.h>
+
 /* Esse modulo foi inteiramente retirado da pagina do professor
 // Paulo Feofiloff, disponivel em:
 // http://www.ime.usp.br/~pf/mac0121-2015/tarefas/lista-palavras/index.html 
