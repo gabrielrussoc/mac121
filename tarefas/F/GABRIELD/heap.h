@@ -40,12 +40,12 @@ void fiwDown (int p, int m, node v[]);
 void fixUp (int m, node v[]);
 
 /* Recebe um heap v[1..n] e remove v[1] (substituindo v[1] com v[n]),
-// mantendo v[1..n-1] como um heap. Devolve v[1..n-1]. */
-node *delete (int n, node v[]);
+// mantendo v[1..n-1] como um heap. */
+void delete (int n, node v[]);
 
 /* Recebe um heap v[1..n] e insere o novo elemento new, matendo o v[1..n+1]
-// como um heap. Devolve v[1..n+1]. */
-node *insert (int n, node v[], node new);
+// como um heap. */
+void insert (int n, node v[], node new);
 
 /* Recebe um vetor de arquivos entrada[0..n-1], todos contendo numeros em ordem
 // nao-decrescente, e um arquivo saida. Grava em saida todos esses numeros em
