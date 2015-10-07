@@ -22,7 +22,7 @@
 #include "heap.h"
 #include "simple.h"
 
-#define DEBUG 0
+#define DEBUG 1
 
 /* O programa recebe uma quantidade arbritaria de arquivos contendo
 // numeros ordenados em cada via linha de comando e um arquivo de saida

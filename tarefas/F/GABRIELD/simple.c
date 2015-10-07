@@ -22,10 +22,14 @@ int merge_simple (FILE **entrada, FILE *saida, int n) {
     int *pq, *fim, i, tot = 0, go = 1, min, mini;
     pq = malloc (n * sizeof (int));
     fim = malloc (n * sizeof (int));
-    for (i = 0; i < n; i++) 
-        fim[i] = 0;
-    for (i = 0; i < n; i++) 
-        fscanf (entrada[i], "%d", &pq[i]);
+    for (i = 0; i < n; i++) {
+        if (fscanf (entrada[i], "%d", &pq[i]) == EOF) 
+            fim[i] = 1;
+        else {
+            fim[i] = 0;
+            tot++;
+        }
+    }
     while (go) {
         go = 0;
         min = INT_MAX;
@@ -37,10 +41,10 @@ int merge_simple (FILE **entrada, FILE *saida, int n) {
             }
         }
         if (go) {
-            tot++;
             fprintf (saida, "%d\n", min);
             if (fscanf (entrada[mini], "%d", &pq[mini]) == EOF)
                 fim[mini] = 1;
+            else tot++;
         }
     }
     free (pq);

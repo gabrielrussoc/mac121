@@ -18,50 +18,61 @@
 
 #include "heap.h"
 
-void heapify (int no, int m, num v[]) {
-    int f = 2 * no;
-    num aux;
+void fixDown (int p, int m, node v[]) {
+    int f = 2 * p;
+    node aux;
     while (f <= m) {
         if (f < m && v[f].val > v[f + 1].val) f++;
-        if (v[no].val <= v[f].val) break;
-        aux = v[no], v[no] = v[f], v[f] = aux;
-        no = f, f *= 2;
+        if (v[p].val <= v[f].val) break;
+        aux = v[p], v[p] = v[f], v[f] = aux;
+        p = f, f *= 2;
     }
 }
 
-int delete (int n, num v[]) {
+void fixUp (int m, node v[]) {
+    node aux;
+    while (m > 1) {
+        if (v[m / 2].val > v[m].val)
+            aux = v[m], v[m] = v[m / 2], v[m / 2] = aux;
+        else break;
+        m /= 2; 
+    }
+}
+
+node *delete (int n, node v[]) {
     v[1] = v[n];
-    heapify (1, n - 1, v);
-    return n - 1;
+    v = realloc (v, n * sizeof (node));
+    fixDown (1, n - 1, v);
+    return v;
 }
 
-int get_new (FILE *file, int n, num v[]) {
-    int aux;
-    if (fscanf (file, "%d", &aux) != EOF) {
-        v[1].val = aux;
-        heapify (1, n, v);
-        return 1;
-    }
-    return 0;
+node *insert (int n, node v[], node new) {
+    v = realloc (v, (n + 2) * sizeof (node));
+    v[n + 1] = new; 
+    fixUp (n + 1, v);
+    return v;
 }
 
 int merge_heap (FILE **entrada, FILE *saida, int n) {
-    int i, aux, tot = 0;
-    num *pq;
-    pq = malloc ((n + 1) * sizeof (num));
-    for (i = 1; i <= n; i++) {
-        fscanf (entrada[i - 1], "%d", &aux);
-        pq[i].ind = i - 1;
-        pq[i].val = aux;
-        tot++;
+    int i, num, tot = 0, tam = 0;
+    node *pq, aux;
+    pq = NULL;
+    for (i = 0; i < n; i++) {
+        if (fscanf (entrada[i], "%d", &num) != EOF) {
+            aux.val = num, aux.ind = i;
+            pq = insert (tam, pq, aux);
+            tam++, tot++;
+        }
     }
-    for (i = n/2; i > 0; i--)
-        heapify (i, n, pq);
-    while (n > 0) {
+    while (tam > 0) {
         fprintf (saida, "%d\n", pq[1].val);
-        if (!get_new (entrada[pq[1].ind], n, pq))
-            n = delete (n, pq);
-        else tot++;
+        i = pq[1].ind;
+        pq = delete (tam--, pq);
+        if (fscanf (entrada[i], "%d", &num) != EOF) {
+            aux.val = num, aux.ind = i;
+            pq = insert (tam++, pq, aux);
+            tot++;
+        }
     }
     free (pq);
     return tot;
