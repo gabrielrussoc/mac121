@@ -55,7 +55,7 @@ int main () {
 
 void test (int *v, int n) {
     int i;
-    for(i = 0; i < N - 1; i++)
+    for(i = 0; i < n - 1; i++)
         if (v[i] > v[i + 1]) {
             printf("Erro! Vetor não ordenado!\n");
             exit (EXIT_FAILURE);
