@@ -36,18 +36,22 @@ int main () {
 
     random_fill (v, N);
     insertion_sort (v, N);
+    printf ("Insertion..");
     test (v, N);
 
     random_fill (v, N);
     merge_sort (v, N);
+    printf ("Merge..");
     test (v, N);
     
     random_fill (v, N);
     quick_sort (v, N);
+    printf ("Quick..");
     test (v, N);
     
     random_fill (v, N);
     heap_sort (v, N);
+    printf ("Heap..");
     test (v, N);
 
     return EXIT_SUCCESS;
@@ -55,16 +59,17 @@ int main () {
 
 void test (int *v, int n) {
     int i;
-    for(i = 0; i < n - 1; i++)
+    for (i = 0; i < n - 1; i++)
         if (v[i] > v[i + 1]) {
-            printf("Erro! Vetor não ordenado!\n");
-            exit (EXIT_FAILURE);
+            printf ("ERRO!\n");
+            return;
         }
+    printf ("OK!\n");
 }
 
 void random_fill (int *v, int n) {
     int i;
     srand (time (NULL));
-    for(i = 0; i < n; i++)
+    for (i = 0; i < n; i++)
         v[i] = rand ();
 }
