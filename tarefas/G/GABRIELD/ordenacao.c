@@ -16,6 +16,7 @@
 // 
 ////////////////////////////////////////////////////////////// */
 
+#include <stdlib.h>
 #include "ordenacao.h"
 
 /* Esse modulo foi essencialmente retirado das paginas do professor

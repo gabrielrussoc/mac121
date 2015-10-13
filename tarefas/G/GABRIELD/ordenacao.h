@@ -19,8 +19,6 @@
 #ifndef _ORDENACAO_H
 #define _ORDENACAO_H
 
-#include <stdlib.h>
-
 /* Rearranja o vetor v[0..n-1] em ordem nao-decrescente em tempo 
 // proporcional a n^2 */
 void insertion_sort (int *v, int n);
