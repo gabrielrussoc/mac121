@@ -21,8 +21,6 @@
 #include <time.h>
 #include "ordenacao.h"
 
-#define N 40000
-
 /* Esse programa testa a biblioteca ordenacao.h */
 
 /* Verifica se o vetor v[0..n-1] esta em ordem nao-decrescente. */
@@ -32,27 +30,31 @@ void test (int *v, int n);
 void random_fill (int *v, int n); 
 
 int main () {
-    int v[N];
+    int n, *v;
+    n = 40000;
+    v = malloc (n * sizeof (int));
 
-    random_fill (v, N);
-    insertion_sort (v, N);
+    random_fill (v, n);
     printf ("Insertion..");
-    test (v, N);
+    insertion_sort (v, n);
+    test (v, n);
 
-    random_fill (v, N);
-    merge_sort (v, N);
+    random_fill (v, n);
     printf ("Merge..");
-    test (v, N);
+    merge_sort (v, n);
+    test (v, n);
     
-    random_fill (v, N);
-    quick_sort (v, N);
+    random_fill (v, n);
     printf ("Quick..");
-    test (v, N);
+    quick_sort (v, n);
+    test (v, n);
     
-    random_fill (v, N);
-    heap_sort (v, N);
+    random_fill (v, n);
     printf ("Heap..");
-    test (v, N);
+    heap_sort (v, n);
+    test (v, n);
+
+    free (v);
 
     return EXIT_SUCCESS;
 }

@@ -34,7 +34,7 @@ static void insercao (int n, int *v) {
     }
 }
 
-/* A função recebe vetores nao-decrescentes v[p..q-1] e 
+/* A funcao recebe vetores nao-decrescentes v[p..q-1] e 
 // v[q..r-1] e rearranja v[p..r-1] em ordem nao-decrescente. */
 static void intercala (int p, int q, int r, int *v) {
     int i, j, k, *w;
@@ -59,7 +59,7 @@ static void m_sort (int p, int r, int *v) {
     }
 }
 
-/* Recebe vetor v[p..r] com p < r. Rearranja os 
+/* Recebe um vetor v[p..r] com p < r. Rearranja os 
 // elementos do vetor e devolve j em p..r tal que 
 // v[p..j-1] <= v[j] < v[j+1..r]. */
 static int separa (int *v, int p, int r) {
@@ -76,7 +76,7 @@ static int separa (int *v, int p, int r) {
     return j; 
 }
 
-/* A função recebe um vetor v[p..r], com p <= r+1,
+/* Recebe um vetor v[p..r], com p <= r+1,
 // e rearranja o vetor em ordem nao-decrescente. */
 static void q_sort (int *v, int p, int r) {
     int j;
@@ -92,9 +92,9 @@ static void q_sort (int *v, int p, int r) {
     }
 }
 /* Recebe p em 1..m e rearranja o vetor v[1..m] de 
-// modo que o "subvetor" cuja raiz é p seja um heap.
-// Supõe que os "subvetores" cujas raízes são filhos
-// de p já são heaps. */
+// modo que o "subvetor" cuja raiz e p seja um heap.
+// Supoe que os "subvetores" cujas raízes sao filhos
+// de p ja sao heaps. */
 static void peneira (int p, int m, int *v) { 
     int f = 2 * p, x = v[p];
     while (f <= m) {
