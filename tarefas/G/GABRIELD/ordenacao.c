@@ -28,7 +28,7 @@ static void insercao (int n, int *v) {
     int i, j, x;
     for (j = 1; j < n; ++j) {
         x = v[j];
-        for (i = j-1; i >= 0 && v[i] > x; --i) 
+        for (i = j-1; i >= 0 && v[i] > x; --i)
             v[i+1] = v[i];
         v[i+1] = x;
     }
@@ -80,12 +80,12 @@ static int separa (int *v, int p, int r) {
 // e rearranja o vetor em ordem nao-decrescente. */
 static void q_sort (int *v, int p, int r) {
     int j;
-    while (p < r) {      
-        j = separa (v, p, r);    
-        if (j - p < r - j) {     
+    while (p < r) {
+        j = separa (v, p, r);
+        if (j - p < r - j) {
             q_sort (v, p, j-1);
-            p = j + 1;            
-        } else {                 
+            p = j + 1;
+        } else {
             q_sort (v, j+1, r);
             r = j - 1;
         }
@@ -93,7 +93,7 @@ static void q_sort (int *v, int p, int r) {
 }
 /* Recebe p em 1..m e rearranja o vetor v[1..m] de 
 // modo que o "subvetor" cuja raiz e p seja um heap.
-// Supoe que os "subvetores" cujas raízes sao filhos
+// Supoe que os "subvetores" cujas raizes sao filhos
 // de p ja sao heaps. */
 static void peneira (int p, int m, int *v) { 
     int f = 2 * p, x = v[p];
