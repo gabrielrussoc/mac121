@@ -56,8 +56,8 @@ int main (int argc, char **argv) {
 }
 
 int pisoLog2 (int n) {
-    int res = 1;
-    while (n > 2) {
+    int res = 0;
+    while (n > 1) {
         res++;
         n /= 2;
     }
